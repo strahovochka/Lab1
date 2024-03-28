@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LAB 1</title>
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <form id="regForm" class="reg-form">
+        <label>
+          Authentication
+          <input type="text" required placeholder="Name" name="name" />
+        </label>
+        <label id="adminPasswordField">
+          Enter password
+          <input type="password" placeholder="Admin password" name="password" />
+        </label>
+        <button type="submit" name="submit">Login</button>
+      </form>
+
+      <div id="dataContainer"></div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Reddit Mono", sans-serif;
+}
+
+body {
+  background: #94faff;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.reg-form {
+  /* background-color: #fff; */
+  width: 300px;
+  margin: 100px auto;
+  text-align: left;
+  font-size: 22px;
+  border-radius: 7px;
+  padding: 30px 25px 20px;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reg-form input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 7px;
+  font-size: 22px;
+}
+
+.reg-form #adminPasswordField {
+  display: none;
+}
+
+.reg-form #adminPasswordField.active {
+  display: block;
+}
+
+.reg-form button {
+  width: 100%;
+  padding: 10px 15px;
+  /* border-radius: 7px; */
+  font-size: 25px;
+  background-color: rgb(0, 118, 26);
+  color: #fff;
+}
+
+.reg-form button:disabled {
+  background-color: rgb(111, 111, 111);
+  cursor: not-allowed;
+}
+
+.sortable-list {
+  margin: 50px auto;
+  width: 425px;
+  border-radius: 7px;
+  padding: 30px 25px 20px;
+  max-height: 80vh;
+  overflow: scroll;
+}
+
+.sortable-list .item {
+  list-style: none;
+  display: flex;
+  cursor: move;
+  background: #fff;
+  align-items: center;
+  border-radius: 40px;
+  padding: 10px 13px;
+  margin-bottom: 11px;
+  justify-content: space-between;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 19px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1)
+}
+.sortable-list .item:nth-child(1) {
+  background: #0f9a05;
+}
+.sortable-list .item:nth-child(2) {
+  background: #0ed000;
+}
+.sortable-list .item:nth-child(3) {
+  background: #11ff00;
+}
+
+.item i {
+  color: #474747;
+  font-size: 1.13rem;
+}
+
+.item.sortable-chosen {
+  opacity: 0.6;
+}
+
+.answer-send-btn {
+  display: block;
+  margin: 50px auto;
+  padding: 15px 20px;
+  width: 425px;
+  font-size: 25px;
+  background: #d3ffb3;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.admin-table {
+  background-color: #fff;
+  /* border-radius: 10px; */
+  margin: 50px auto;
+  font-size: 25px;
+}
+
+.admin-table tr,
+.admin-table td,
+.admin-table th {
+  padding: 10px 20px;
+}
+
+.admin-table td {
+  border-top: 1px solid black;
+}
+
+.admin-table td:not(:first-child),
+.admin-table th:not(:first-child) {
+  border-left: 1px solid black;
+}
