@@ -3,6 +3,8 @@ import { displayList } from "./list.js";
 import apiService from "../services/apiService.js";
 import { displayAdminPage } from "../templates/adminPage.js";
 
+let username = "";
+
 function handleRegFormSubmit(event) {
   event.preventDefault();
 
@@ -32,6 +34,8 @@ function handleRegFormSubmit(event) {
     form.remove();
     displayAdminPage();
   }
+
+  username = formData.get("name");
 }
 
 function handleRegFormInput(event) {
@@ -55,6 +59,7 @@ function gandleDataSend() {
     const data = {
       name: item.textContent.trim(),
       priority: i + 1,
+      username,
     };
 
     apiService
