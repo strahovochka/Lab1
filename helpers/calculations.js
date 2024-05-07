@@ -75,6 +75,14 @@ function rowSum(row) {
     return sum;
 }
 
+function columSum(matrix, index) {
+    let sum = 0;
+    matrix.forEach(row => {
+        sum += row[index];
+    })
+    return sum;
+}
+
 function permutationResult(n, rangeMatrix) {
     let permutations = permute(n);
 
@@ -129,4 +137,48 @@ function convertToRanguvannia(range) {
     return ranguvannia;
 }
 
-export default { createRangeMatrix, permutationResult, getMinRanges, convertToRanguvannia };
+function getCompromise(rang, expertMatrix) {
+    let resultMatrix = [];
+    let columsSum = [];
+    for (let i = 0; i < expertMatrix.length; i++) {
+        let temp = [];
+        for (let j = 0; j < expertMatrix[i].length; j++) {
+            if (expertMatrix[i][j] != 0) {
+                temp.push(Math.abs(rang[i] - expertMatrix[i][j]));
+            } else {
+                temp.push(0);
+            }
+        }
+        resultMatrix.push(temp);
+    } 
+    for (let j = 0; j < expertMatrix[0].length; j++) {
+        columsSum.push(columSum(resultMatrix, j));
+    }
+    return {matrix: resultMatrix, columsSum: columsSum};
+}
+
+function calcSomething(sums) {
+    let res = [];
+    sums.forEach(sum => {
+        res.push((sum / 4 / 3).toFixed(2));
+    })
+    return res;
+}
+
+function calcSatisfaction(smth) {
+    let res = [];
+    smth.forEach(element => {
+        res.push((1 - element) * 100);
+    })
+    return res;
+}
+
+export default { 
+    createRangeMatrix, 
+    permutationResult, 
+    getMinRanges, 
+    convertToRanguvannia,
+    getCompromise,
+    calcSomething,
+    calcSatisfaction
+};
