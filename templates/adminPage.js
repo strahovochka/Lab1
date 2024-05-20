@@ -51,7 +51,8 @@ async function displayAdminPage() {
   let rangeMatrix = calc.createRangeMatrix(
     userAnswersCollection,
     uniqueResults
-  );
+  ); //one big table lab 3
+  console.log("TABLE SUKA", rangeMatrix);
   let permuteResult = calc.permutationResult(
     Object.keys(uniqueResults).length,
     rangeMatrix
@@ -90,6 +91,10 @@ async function displayAdminPage() {
     "beforeend",
     createRangTable(ranguvanniaMax)
   );
+  refs.listContainer.insertAdjacentHTML(
+    "beforeend",
+    createRangTable(rangeMatrix)
+  );
 
   //lab no 3
   let mainRange = minSums[0].permutation;
@@ -99,11 +104,27 @@ async function displayAdminPage() {
   let someCalc = calc.calcSomething(compromiseSums);
   let satisfaction = calc.calcSatisfaction(someCalc);
   console.log(rangeMatrix);
+  console.log("HUUUUINA  8==================D");
   console.log(mainRange);
   console.log(compromiseMatrix);
   console.log(compromiseSums);
   console.log(someCalc);
   console.log(satisfaction);
+
+  const compromiseAllData = [[...compromiseMatrix], [...compromiseSums], [...someCalc], [...satisfaction]]
+  console.log(compromiseAllData);
+
+  refs.listContainer.insertAdjacentHTML(
+    "beforeend",
+    mainRange.join(", ")
+  );
+
+  compromiseAllData.forEach(data => refs.listContainer.insertAdjacentHTML(
+    "beforeend",
+    createRangTable(data)
+  ))
+
+
 }
 
 function createRangTable(data, title = "") {
@@ -111,12 +132,22 @@ function createRangTable(data, title = "") {
 
   let tableMarkup = "";
 
-  data.forEach((value) => {
-    const data = Array.isArray(value) ? value : [...value.permutation];
+  if (typeof data[0] === "string" || typeof data[0] === "number") {
+
 
     const trContent = data.map((value) => `<td>${value}</td>`).join("");
     tableMarkup += `<tr>${trContent}</tr>`;
-  });
+
+  } else {
+
+    data.forEach((value) => {
+      const data = Array.isArray(value) ? value : [...value.permutation];
+
+      const trContent = data.map((value) => `<td>${value}</td>`).join("");
+      tableMarkup += `<tr>${trContent}</tr>`;
+    });
+  }
+
 
   const titleMarkup = title ? `<h3>${title} = ${data[0].value}</h3>` : "";
   return `
